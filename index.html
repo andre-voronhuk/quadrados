@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JS</title>
+</head>
+
+<body>
+    <button id='criar'>Criar Quadrado</button>
+    <button id='auto'>Gerar Automaticamente</button>
+
+    <div id="app">
+
+    </div>
+
+    <script>
+        var btn = document.getElementById('criar');
+        btnAuto = document.getElementById('auto');
+
+        btn.onclick = function () {
+            criarQuadrado();
+        }
+        btnAuto.onclick = function () {
+            gerarAutomaticamente();
+        }
+
+        function criarQuadrado() {
+            var quadrado = document.createElement('div')
+            console.log(quadrado)
+            quadrado.setAttribute('class', 'quadrados')
+            quadrado.style.width = '100px';
+            quadrado.style.backgroundColor = gerarCor();
+            quadrado.style.height = '100px';
+            quadrado.style.float = 'left';
+            quadrado.style.margin = '2px 2px';
+
+            var container = document.getElementById('app');
+            container.appendChild(quadrado);
+            // quadrado.setAttribute.style.height = '300px'
+
+        }
+        function gerarCor() {
+            var hexadecimais = '0123456789ABCDEF';
+            var cor = '#';
+
+
+            for (var i = 0; i < 6; i++) {
+
+                cor += hexadecimais[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+        function gerarAutomaticamente() {
+
+            setInterval(criarQuadrado, 20);
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
